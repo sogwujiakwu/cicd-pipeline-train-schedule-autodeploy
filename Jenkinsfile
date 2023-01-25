@@ -8,7 +8,7 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    image 'gradle:jdk11-alpine'
+                    image 'gradle:4.8.1-jdk8-alpine'
                     // Run the container on the node specified at the
                     // top-level of the Pipeline, in the same workspace,
                     // rather than on a new node entirely:
@@ -18,7 +18,7 @@ pipeline {
             }    
             steps {
                 echo 'Running build automation'
-                sh 'gradle build --no-daemon'
+                sh './gradlew build --no-daemon'
                 archiveArtifacts artifacts: 'dist/trainSchedule.zip'
             }
         }
