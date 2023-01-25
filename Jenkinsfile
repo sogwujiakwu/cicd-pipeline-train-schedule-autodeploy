@@ -6,7 +6,7 @@ pipeline {
     }
     stages {
         stage('Build') {
-            agent {
+            /*agent {
                 docker {
                     image 'gradle:4.8.0-jdk7-alpine'
                     // Run the container on the node specified at the
@@ -15,7 +15,7 @@ pipeline {
                     reuseNode true
                     args '--entrypoint='
                } 
-            }    
+            }*/    
             steps {
                 echo 'Running build automation'
                 sh './gradlew build --no-daemon'
